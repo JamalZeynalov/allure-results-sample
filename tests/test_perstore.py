@@ -10,7 +10,7 @@ def test_response():
     response: Response = CoverageListener(
         method="get",
         base_url="https://petstore.swagger.io",
-        raw_path="/v2/store/order/{orderId}",
-        uri_params={"orderId": 1},
+        raw_path="/pet/{petId}",
+        uri_params={"petId": 1},
     ).response
-    assert response.status_code == 404
+    assert response.status_code
