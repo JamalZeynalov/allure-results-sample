@@ -1,23 +1,36 @@
 ## Set of tests used as examples for "Allure Docker Service UI"
 
-#### To generate test results follow steps below:
-* Clone this GitHub project:
+Clone this GitHub project:
+```shell
+> git clone git@github.com:JamalZeynalov/allure-results-sample.git
 ```
-git clone git@github.com:JamalZeynalov/allure-results-sample.git
-```
-* Install requirements:
-```
-pip install -r requirements.txt
-```
-* Run tests using pytest
+<hr>
 
+### Run tests locally:
+```shell
+> pip install -r requirements.txt
+> pytest
+```
 Note: "alluredir" cmd option is already set in pytest.ini
+<hr>
+
+### Run tests in the docker container:
+Build an image and run tests in the docker container:
+```shell
+> docker build -t test-image .
+> sh dockerized_tests.sh test-image
 ```
-pytest
+or use pre-built image from the dockerhub:
+```shell
+> sh dockerized_tests.sh jamalzeinalov/test-image
 ```
-* If your "Allure Docker Service UI" is currently running on your host machine then you can run send_allure_results.py
-```
-python send_allure_results.py
+Note: Use git bash to run shell scripts on Windows 
+<hr>
+
+### Send results:
+If your "Allure Docker Service UI" is currently running on your host machine then you can run send_allure_results.py
+```shell
+> python send_allure_results.py
 ```
 This script sends all files from "target/allure-results" dir to "Allure Docker Service".
 

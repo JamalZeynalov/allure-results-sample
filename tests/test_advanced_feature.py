@@ -25,7 +25,7 @@ def test_advanced_feature_1():
     story('Story #1')
     title('Advanced web application feature is working correctly in Google Firefox')
 """)
-def test_advanced_feature():
+def test_advanced_feature2():
     step_1()
     step_2()
     verify_test_results()
@@ -39,7 +39,7 @@ def test_advanced_feature():
     story('Story #2')
     title('Advanced mobile application feature is working correctly with Wi-Fi connection')
 """)
-def test_Advanced_feature():
+def test_advanced_feature3():
     step_1()
     step_2()
     verify_test_results()
@@ -53,7 +53,7 @@ def test_Advanced_feature():
     story('Story #2')
     title('Advanced mobile application feature is working correctly with LTE connection')
 """)
-def test_Advanced_feature():
+def test_advanced_feature4():
     step_1()
     step_2()
     verify_test_results()
