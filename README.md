@@ -20,6 +20,10 @@ Build an image and run tests in the docker container:
 > docker build -t test-image .
 > sh dockerized_tests.sh test-image
 ```
+The Doclerfile used here is created for "arm64" version of JDK 11.<br>
+So, you have to change the path in the JAVA_HOME environment variable if you use another version.
+<br>
+
 or use pre-built image from the dockerhub:
 ```shell
 > sh dockerized_tests.sh jamalzeinalov/test-image
