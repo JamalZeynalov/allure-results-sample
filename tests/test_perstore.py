@@ -14,3 +14,14 @@ def test_response():
         uri_params={"petId": 1},
     ).response
     assert response.status_code
+
+
+@allure.title("Test title")
+def test_response_2():
+    with allure.step("Step 1"):
+        print(1)
+        with allure.step("Step 1.1"):
+            print(1)
+
+    with allure.step("Step 2"):
+        print(1)

@@ -1,7 +1,10 @@
 import random
 
 import pytest
+from dotenv import load_dotenv
 from swagger_coverage_py.reporter import CoverageReporter
+
+load_dotenv(".env")
 
 
 @pytest.fixture
