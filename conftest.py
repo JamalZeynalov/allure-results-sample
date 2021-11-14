@@ -16,7 +16,7 @@ def random_int_fixture():
 def setup_swagger_coverage():
     reporter = CoverageReporter(api_name="petstore", host="https://petstore.swagger.io")
     reporter.cleanup_input_files()
-    reporter.setup("/v2/swagger.json")
+    reporter.setup("/v2/swagger.yaml")
 
     yield
     reporter.generate_report()
