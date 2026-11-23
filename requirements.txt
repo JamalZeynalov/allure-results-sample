@@ -1,5 +1,5 @@
 pytest==5.4.3
-requests==2.25.1
+requests==2.31.0
 PyHamcrest==2.0.2
 allure-pytest==2.8.29
 swagger-coverage==2.1.3
