@@ -1,5 +1,21 @@
 ## Set of tests used as examples for "Allure Docker Service UI"
 
+### Verify Rules Stop
+
+[Read the hook](.agents/hooks/verify_rules_stop.py) · [Review rules](AGENTS.md)
+
+When Claude Code or Cursor edits files in this sample, a project hook records
+the paths for that conversation. At stop it requests one review of the actual
+changes against the relevant rules. For example, editing
+`steps/common_steps.py` selects the shared-step checks, including whether
+existing callers still match the changed signature.
+
+The hook uses Python 3 and its standard library. Open the repository in a
+client with project hooks enabled and ask it to edit a test or a step. The
+review prompt appears when the agent tries to finish. Read-only turns produce
+no prompt. Shell-only edits are outside the edit events this hook observes.
+The agent performs the review; the hook does not certify that tests passed.
+
 Clone this GitHub project:
 ```shell
 > git clone git@github.com:JamalZeynalov/allure-results-sample.git
