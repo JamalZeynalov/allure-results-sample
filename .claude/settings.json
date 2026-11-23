@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "PostToolUse": [{
+      "matcher": "Edit|Write|MultiEdit",
+      "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.agents/hooks/verify_rules_stop.py\" edit"}]
+    }],
+    "Stop": [{
+      "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.agents/hooks/verify_rules_stop.py\" stop"}]
+    }]
+  }
+}

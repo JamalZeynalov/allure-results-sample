@@ -1,5 +1,39 @@
 ## Set of tests used as examples for "Allure Docker Service UI"
 
+### Verify Rules Stop
+
+This hook brings the project's review rules into an AI coding session at the
+point when the agent is about to finish. It records the files edited through
+Claude Code or Cursor and asks the agent to check its changes against the
+matching sections of [AGENTS.md](AGENTS.md).
+
+For example, an edit to [a shared test step](steps/common_steps.py) triggers
+two checks. Do the callers still match the step's signature? Does its Allure
+label still describe the action? The agent inspects the changes, fixes any
+issues it finds, and reports what it checked.
+
+**Try it.** With Python 3 on your PATH and project hooks enabled, open this
+repository in Claude Code or Cursor. Ask the agent to edit an Allure step
+label in `steps/common_steps.py` using its file editor. When it tries to
+finish, look for the follow-up pointing to **Shared steps**.
+
+The hook tracks editor events per conversation in a local SQLite database.
+Read-only turns and shell-only edits produce no review prompt. A loop guard
+limits the review to one follow-up. The agent is responsible for checking the
+diff and running any relevant tests.
+
+[Hook implementation](.agents/hooks/verify_rules_stop.py) ·
+[Claude Code configuration](.claude/settings.json) ·
+[Cursor configuration](.cursor/hooks.json)
+
+Run the hook's regression tests with the Python standard library:
+
+```sh
+python3 -m unittest discover -s .agents/hooks/tests
+```
+
+### Set up the sample
+
 Clone this GitHub project:
 ```shell
 > git clone git@github.com:JamalZeynalov/allure-results-sample.git
